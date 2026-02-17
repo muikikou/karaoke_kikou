@@ -1,1 +1,764 @@
-# karaoke_kikou
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カラオケ気功 | 東大阪で楽しく健康に</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D84315;
+            --primary-light: #FF6E40;
+            --secondary: #00897B;
+            --accent: #FFC107;
+            --bg-cream: #FFF8E1;
+            --bg-light: #FFFBF0;
+            --text-dark: #2C1810;
+            --text-mid: #5D4037;
+            --shadow: rgba(216, 67, 21, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FFE0B2 0%, #FFCCBC 50%, #FFAB91 100%);
+            overflow: hidden;
+            padding: 2rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.3) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 137, 123, 0.2) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-5deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px var(--shadow);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        h1 {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--text-mid);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px var(--shadow);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.8s both, pulse 2s ease-in-out 2s infinite;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px var(--shadow);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        /* Problems Section */
+        .problems {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .problem-list {
+            list-style: none;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .problem-item {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--bg-cream);
+            border-left: 5px solid var(--primary);
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .problem-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .problem-item::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 900;
+            margin-right: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .benefit-text {
+            color: var(--text-mid);
+            line-height: 1.7;
+        }
+        
+        /* Reasons Section */
+        .reasons {
+            background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%);
+        }
+        
+        .reasons-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .reason-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .reason-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+        
+        .reason-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+        
+        .reason-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .reason-content p {
+            color: var(--text-mid);
+            line-height: 1.8;
+        }
+        
+        /* Instructor Section */
+        .instructor {
+            background: white;
+        }
+        
+        .instructor-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            background: var(--bg-cream);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+        
+        .instructor-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #FFE0B2, #FFAB91);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .instructor-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .instructor-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .credential {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        /* Lessons Section */
+        .lessons {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+        }
+        
+        .lesson-locations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .location-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        
+        .location-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--bg-cream);
+        }
+        
+        .location-info {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        
+        .location-info strong {
+            color: var(--secondary);
+            min-width: 80px;
+        }
+        
+        .price-highlight {
+            background: linear-gradient(135deg, var(--accent), #FFD54F);
+            color: var(--text-dark);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.8rem;
+            font-weight: 900;
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.3);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: white;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .faq-item {
+            background: var(--bg-cream);
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 1.5rem 2rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #FFF8DC;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.8rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 2rem 1.5rem 2rem;
+            color: var(--text-mid);
+            line-height: 1.8;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact .section-title::after {
+            background: white;
+        }
+        
+        .contact-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .line-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #06C755;
+            color: white;
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .line-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+        
+        .line-icon {
+            font-size: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--bg-cream);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .instructor-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .reason-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">東大阪・瓢箪山で開講中</div>
+            <h1>歌って、動いて、<br>元気になる</h1>
+            <p class="hero-subtitle">カラオケと気功が一つになった<br>新しい健康教室</p>
+            <a href="#contact" class="cta-button">LINEで気軽に問い合わせ</a>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section>
+        <div class="problems">
+            <h2 class="section-title">こんなお悩みありませんか?</h2>
+            <ul class="problem-list">
+                <li class="problem-item">運動不足で体が重い、疲れやすい</li>
+                <li class="problem-item">肩こりや腰痛がつらい</li>
+                <li class="problem-item">ストレスが溜まっている</li>
+                <li class="problem-item">一人で続けられる自信がない</li>
+                <li class="problem-item">難しい運動は苦手</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section>
+        <h2 class="section-title">カラオケ気功で得られる効果</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🎤</div>
+                <h3 class="benefit-title">楽しく続けられる</h3>
+                <p class="benefit-text">大好きなカラオケと健康法が一緒に。楽しいから自然と続けられます。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💪</div>
+                <h3 class="benefit-title">体の調子が整う</h3>
+                <p class="benefit-text">気の流れを整えることで、肩こりや腰痛、疲労感の改善に。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">😊</div>
+                <h3 class="benefit-title">心が軽くなる</h3>
+                <p class="benefit-text">呼吸法でストレス解消。歌うことで気分もリフレッシュ。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">👥</div>
+                <h3 class="benefit-title">仲間ができる</h3>
+                <p class="benefit-text">和気あいあいとした雰囲気で、新しい友達との出会いも。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="reasons">
+        <h2 class="section-title">初心者でも安心の3つの理由</h2>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <div class="reason-number">1</div>
+                <div class="reason-content">
+                    <h3>気軽に始められる</h3>
+                    <p>特別な道具は一切不要。動きやすい服装だけでOK。気功が初めての方でも、基礎から丁寧にお教えします。「こんな簡単でいいの?」と驚かれる方も多いんですよ。</p>
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-number">2</div>
+                <div class="reason-content">
+                    <h3>楽しい雰囲気</h3>
+                    <p>堅苦しい教室ではありません。カラオケ喫茶を15年経営していた講師だからこそ作れる、温かくて楽しい空間。笑顔と笑い声が絶えない教室です。</p>
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-number">3</div>
+                <div class="reason-content">
+                    <h3>手頃な料金</h3>
+                    <p>1回たったの1,000円。「続けられるか不安…」という方も、気軽に試せる料金設定。好きなときに参加できるので、無理なく続けられます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section class="instructor">
+        <h2 class="section-title">講師紹介</h2>
+        <div class="instructor-content">
+            <div class="instructor-image">👩‍🏫</div>
+            <div class="instructor-text">
+                <h3>あなたの健康をサポートします</h3>
+                <p>カラオケ喫茶で15年間ママとして皆様に笑顔を届けてきました。その経験を活かし、今度は健康の面からも皆様をサポートしたいと、気功の道へ。</p>
+                <p>無維気功養生会のスクールを卒業し、師範資格を取得。横浜や中国での研修にも参加し、本格的な気功を学びました。</p>
+                <p>「楽しく、気軽に、長く続けられる」をモットーに、初心者の方にもわかりやすく丁寧にお教えしています。</p>
+                <div class="credential">無維気功養生会 認定師範</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Section -->
+    <section class="lessons">
+        <h2 class="section-title">レッスン会場・料金</h2>
+        <div class="lesson-locations">
+            <div class="location-card">
+                <h3 class="location-title">📍 近江堂会場</h3>
+                <div class="location-info">
+                    <strong>会場:</strong>
+                    <span>東大阪市近江堂<br>リージョンセンター</span>
+                </div>
+                <div class="location-info">
+                    <strong>内容:</strong>
+                    <span>気功レッスン</span>
+                </div>
+                <div class="location-info">
+                    <strong>日時:</strong>
+                    <span>※お問い合わせください</span>
+                </div>
+            </div>
+            <div class="location-card">
+                <h3 class="location-title">🎤 瓢箪山会場</h3>
+                <div class="location-info">
+                    <strong>会場:</strong>
+                    <span>瓢箪山<br>リージョンセンター</span>
+                </div>
+                <div class="location-info">
+                    <strong>内容:</strong>
+                    <span>カラオケ気功レッスン<br>（カラオケ設備完備）</span>
+                </div>
+                <div class="location-info">
+                    <strong>日時:</strong>
+                    <span>※お問い合わせください</span>
+                </div>
+            </div>
+        </div>
+        <div class="price-highlight">
+            1回 1,000円（都度払い）
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2 class="section-title">よくあるご質問</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">気功は初めてですが大丈夫ですか?</div>
+                <div class="faq-answer">もちろん大丈夫です! 参加者のほとんどが初心者からスタートしています。基礎から丁寧にお教えしますので、安心してご参加ください。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">どんな服装で行けばいいですか?</div>
+                <div class="faq-answer">動きやすい服装であれば何でもOKです。ジャージやスウェット、ゆったりとした普段着などで問題ありません。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">体が硬くても参加できますか?</div>
+                <div class="faq-answer">はい、大丈夫です。気功は無理な動きをしないので、体の硬さは関係ありません。ご自分のペースで楽しんでいただけます。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">カラオケが苦手でも大丈夫ですか?</div>
+                <div class="faq-answer">もちろんです! 歌うことが苦手な方も、聴いて楽しんだり、気功だけに集中していただいても構いません。無理に歌う必要はありませんよ。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">見学はできますか?</div>
+                <div class="faq-answer">見学も大歓迎です! まずはLINEでお気軽にお問い合わせください。雰囲気を見てから決めていただいて大丈夫です。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2 class="section-title">お問い合わせ・お申込み</h2>
+        <p class="contact-text">
+            レッスンの詳細や日程など、<br>
+            お気軽にLINEでお問い合わせください
+        </p>
+        <a href="#" class="line-button" id="contact">
+            <span class="line-icon">📱</span>
+            LINEで問い合わせる
+        </a>
+        <p style="margin-top: 2rem; opacity: 0.9; font-size: 0.95rem;">
+            ※LINE IDまたはQRコードをお伝えいたします
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 カラオケ気功教室. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections except hero
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
