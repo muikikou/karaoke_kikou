@@ -338,14 +338,16 @@
         
         .instructor-image {
             width: 100%;
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #FFE0B2, #FFAB91);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
+            overflow: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .instructor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
         }
         
         .instructor-text h3 {
@@ -623,9 +625,12 @@
     <section class="instructor">
         <h2 class="section-title">講師紹介</h2>
         <div class="instructor-content">
-            <div class="instructor-image">👩‍🏫</div>
+            <div class="instructor-image">
+                    <img src="instructor_fujiwara.jpg" alt="講師 藤原ひとみ" loading="lazy">
+                </div>
             <div class="instructor-text">
-                <h3>あなたの健康をサポートします</h3>
+                <h3>藤原 ひとみ</h3>
+                    <p style="color: var(--text-mid); font-size: 0.95rem; margin-bottom: 1rem;">あなたの健康をサポートします</p>
                 <p>カラオケ喫茶で15年間ママとして皆様に笑顔を届けてきました。その経験を活かし、今度は健康の面からも皆様をサポートしたいと、気功の道へ。</p>
                 <p>無為気功養生会のスクールを卒業し、師範資格を取得。横浜や中国での研修にも参加し、本格的な気功を学びました。</p>
                 <p>「楽しく、気軽に、長く続けられる」をモットーに、初心者の方にもわかりやすく丁寧にお教えしています。</p>
