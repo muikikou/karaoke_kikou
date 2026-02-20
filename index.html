@@ -218,6 +218,66 @@
             font-size: 1.3rem;
         }
         
+        /* Qigong What Section */
+        .qigong-what {
+            background: linear-gradient(135deg, #E3F2FD 0%, #F3E5F5 100%);
+        }
+        .qigong-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+        .qigong-intro p {
+            font-size: 1.15rem;
+            color: var(--text-mid);
+            line-height: 1.9;
+        }
+        .qigong-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+        .qigong-point-card {
+            background: white;
+            border-radius: 18px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+        .qigong-point-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+        .qigong-point-icon {
+            font-size: 2.4rem;
+            margin-bottom: 0.8rem;
+        }
+        .qigong-point-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.6rem;
+        }
+        .qigong-point-card p {
+            font-size: 0.97rem;
+            color: var(--text-mid);
+            line-height: 1.8;
+        }
+        .qigong-note {
+            margin-top: 3rem;
+            background: white;
+            border-left: 5px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            line-height: 1.9;
+        }
         /* Benefits Section */
         .benefits-grid {
             display: grid;
@@ -600,6 +660,47 @@
                 <li class="problem-item">一人で続けられる自信がない</li>
                 <li class="problem-item">難しい運動は苦手</li>
             </ul>
+        </div>
+    </section>
+
+    <!-- Qigong What Section -->
+    <section class="qigong-what">
+        <h2 class="section-title">気功とは？</h2>
+        <div class="qigong-intro">
+            <p>
+                気功（きこう）とは、古代中国から伝わる心身を整える健康法です。<br>
+                「気」は生命エネルギー、「功」はその気を鍛え整える鍛錬を意味します。<br>
+                ゆっくりとした呼吸・穏やかな動き・意識の集中（瞑想）を組み合わせることで、<br>
+                体の中のエネルギーの流れを整え、自然治癒力を高める健康法です。
+            </p>
+        </div>
+        <div class="qigong-points">
+            <div class="qigong-point-card">
+                <div class="qigong-point-icon">🌬️</div>
+                <h3>深い呼吸で酸素を全身へ</h3>
+                <p>気功の腹式呼吸は、横隔膜を大きく動かし、肺の奥まで酸素を取り込みます。全身の血流が促進され、疲労回復・冷え性・免疫力アップに働きかけます。</p>
+            </div>
+            <div class="qigong-point-card">
+                <div class="qigong-point-icon">🧘</div>
+                <h3>ゆったりした動きで筋肉・関節をほぐす</h3>
+                <p>激しい運動とは異なり、無理のない動作で全身の筋肉・関節を動かします。肩こり・腰痛・膝の痛みの緩和に効果的で、転倒予防にもつながります。</p>
+            </div>
+            <div class="qigong-point-card">
+                <div class="qigong-point-icon">🧠</div>
+                <h3>自律神経を整えてストレス解消</h3>
+                <p>ゆっくりとした動きと呼吸が副交感神経を優位にし、ストレスや不安を和らげます。睡眠の質の向上・うつ・不安感の軽減にも有効とされています。</p>
+            </div>
+            <div class="qigong-point-card">
+                <div class="qigong-point-icon">💓</div>
+                <h3>血流・代謝を改善する</h3>
+                <p>体をほぐしながら血液・リンパの流れを促進。高血圧・糖尿病・動脈硬化などの生活習慣病の予防・改善をサポートし、内臓機能の向上にも役立ちます。</p>
+            </div>
+        </div>
+        <div class="qigong-note">
+            💡 <strong>気功は年齢・体力に関係なく始められます。</strong>
+            椅子に座ったまま行えるメニューもあり、運動が苦手な方・体に不安がある方でも安心してご参加いただけます。
+            東大阪のカラオケ気功教室では、気功に歌（カラオケ）を組み合わせることで、
+            <strong>呼吸機能の強化・表情筋の活性化・認知症予防</strong>にもアプローチしています。
         </div>
     </section>
 
